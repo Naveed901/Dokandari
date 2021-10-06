@@ -1,0 +1,358 @@
+/*body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .signup-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .signup-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+
+.signup-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.signup-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}*/
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&display=swap');
+
+/* CSS Variables */
+:root {
+  --background: #FFFFFF;
+  --text: #333333;
+  --blue: #1564b2;
+  --lightblue: #1E90FF;
+}
+/* !CSS Variables */
+
+/* Hide */
+.hide {
+  display: none!important;
+  visibility: hidden!important;
+}
+/* !Hide */
+
+/* pointer */
+.pointer {
+  cursor: pointer;
+}
+/* !pointer */
+
+/* Body */
+body {
+  max-width: 100%;
+  font-family: 'Raleway', sans-serif;
+}
+/* !Body */
+
+/* Anchor Tag */
+a, a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+/* !Anchor Tag */
+
+/* Heading tags */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bolder;
+}
+/* !Heading tags */
+
+/* Breadcrumb */
+.breadcrumb-item a {
+  text-decoration: none;
+  color: var(--text);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "»";
+}
+/* !Breadcrumb */
+
+/* Header */
+/* TopNav */
+#topnav {
+  background-color: var(--light);
+  font-size: 0.85em;
+  padding: 0.4em 0em;
+}
+#topnav a {
+  color: var(--text);
+  text-decoration: none;
+}
+/* !TopNav */
+/* MainHeader */
+#mainheader .form-control {
+  font-size: 1.1em;
+}
+@media (min-width: 1025px) {
+  #mainheader .searchbar {
+    width: 30em!important;
+  }
+  #mainheader .filter {
+    width: 10em!important;
+  }
+}
+@media (max-width: 1024px) and (min-width: 787px) {
+  #mainheader .searchbar {
+    width: 23em!important;
+  }
+  #mainheader .filter {
+    width: 7em!important;
+  }
+}
+@media (min-width: 426px) and (max-width: 786px) {
+  #mainheader .searchbar {
+    width: 20em!important;
+  }
+  #mainheader .filter {
+    width: 10em!important;
+  }
+}
+@media (max-width: 425px) {
+  #mainheader .searchbar {
+    width: 70%!important;
+  }
+  #mainheader .filter {
+    width: 30%!important;
+  }
+}
+#mainheader .searchbtn {
+  background-color: var(--lightblue);
+  color: #FFFFFF;
+  font-size: 1.05em;
+  margin: 0em 0.5em;
+}
+@media (max-width: 1024px) {
+  #mainheader .searchbtn {
+    margin: 0.5em 0em;
+  }
+}
+@media (max-width: 425px) {
+  #mainheader .input-group {
+    margin-top: 0.5em;
+  }
+}
+/* !MainHeader */
+/* !Header */
+
+/* Footer */
+footer {
+  padding: 2em 0em;
+  font-size: 0.8em;
+}
+footer .fa {
+  font-size: 1.1em;
+  margin: 0.5em;
+}
+#copyright {
+  font-size: 0.8em;
+  padding: 0.4em 0em;
+}
+/* !Footer */
+
+/* Index Page */
+  /* Banner */
+    @media (max-width: 425px) {
+      #banner .card {
+        margin-top: 0.5em;
+      }
+    }
+  /* !Banner */
+
+  /* Featured&Markets&mostratedstore&mostlikedproduct */
+  #latestshop, #latestpost, #markets, #mostratedstore, #mostlikedproduct, #latestshop-posts, #latestmarket-posts {
+    margin-top: 5em; 
+  }
+  /* !Featured&Markets&mostratedstore&mostlikedproduct */
+/* !Index Page */
+
+/* User Profile Page */
+  /* Profile */
+    #profile {
+      margin-top: 4.5em;
+    }
+  /* !Profile */
+/* !User Profile Page */
+
+/* ShopSignUp */
+  /* BreadCrumb */
+  #shopSignUp .breadcrumb .active {
+    color: var(--lightblue) !important;
+  }
+  #upload {
+      opacity: 0;
+  }
+  #upload-label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+  }
+  .image-area {
+      border: 2px dashed rgba(255, 255, 255, 0.7);
+      padding: 1rem;
+      position: relative;
+  }
+  .image-area::before {
+      content: 'Uploaded image result';
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
+      z-index: 1;
+  }
+  .image-area img {
+      z-index: 2;
+      position: relative;
+  }
+  /* !BreadCrumb */
+/* !ShopSignUp */
+
+/* PostPage */
+  /* PostImage */
+  #post-img .file-upload {
+      display: none;
+  }
+  #post-img .circle {
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+      border: 1px solid var(--lightblue);
+  }
+  #post-img img {
+      width: 100%;
+      height: 100%;
+  }
+  #post-img .p-image {
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  #post-img .p-image:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  }
+  #post-img .upload-button {
+    font-size: 1.2em;
+  }
+  #post-img .upload-button:hover {
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
+  }
+  /* !PostImage */
+/* !PostPage */

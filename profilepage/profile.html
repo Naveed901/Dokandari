@@ -1,4 +1,4 @@
-<div class="container rounded bg-white mt-5 mb-5">
+<!-- <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">awais</span><span class="text-black-50">awais@mail.com</span><span> </span></div>
@@ -32,3 +32,240 @@
         
     </div>
 </div>
+ -->
+
+<!-- Breadcrumb -->
+<div class="container">
+  <h5>
+    <ol class="breadcrumb p-3">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">User</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+  </h5>
+</div>
+<!-- !Breadcrumb -->
+
+<!-- Profile -->
+<div id="profile">
+  <div class="container">
+    <div class="row">
+      <!-- Info -->
+      <div class="col-lg-3">
+        <div class="image">
+          <center>
+            <img src="https://via.placeholder.com/180&text=Profile+Image" alt="Profile Image" class="rounded-circle mb-3">
+            <h5><?php echo $_SESSION['user'] ?></h5>
+          </center>
+        </div>
+      </div>
+      <!-- Following -->
+      <div class="col-lg-9">
+        <div class="card p-3">
+          <div class="card-heading">
+            <h2>Following</h2>
+            <hr>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <center>
+                  <h4>Markets</h4>
+                  <p style="cursor:pointer;" data-toggle="modal" data-target="#market-followingModal">Number</p>
+                </center>
+              </div>
+              <div class="col-md-6">
+                <center>
+                  <h4>Shops</h4>
+                  <p style="cursor:pointer;" data-toggle="modal" data-target="#shops-followingModal">Number</p>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- !Following -->
+    </div>
+  </div>
+</div>
+<!-- !Profile -->
+
+<!-- Models -->
+
+  <!-- Market Following Model -->
+    <!-- Modal -->
+    <div class="modal fade" id="market-followingModal" tabindex="-1" role="dialog" aria-labelledby="market-followingModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Markets you follow</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Follower 1 -->
+            <div class="container border-bottom p-3">
+              <div class="row">
+                <div class="col-sm-3">
+                    <img src="https://via.placeholder.com/80&text=Profile+Image" alt="Profile Image" class="rounded-circle">
+                </div>
+                <div class="col-sm-5 d-flex">
+                  <div class="align-self-center">
+                    Market Name
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex">
+                  <div class="align-self-center">
+                    <button type="button" class="btn btn-primary" name="button">Following</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Follower 2 -->
+            <div class="container border-bottom p-3">
+              <div class="row">
+                <div class="col-sm-3">
+                    <img src="https://via.placeholder.com/80&text=Profile+Image" alt="Profile Image" class="rounded-circle">
+                </div>
+                <div class="col-sm-5 d-flex">
+                  <div class="align-self-center">
+                    Market Name
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex">
+                  <div class="align-self-center">
+                    <button type="button" class="btn btn-primary" name="button">Following</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- !Market Following Model -->
+
+  <!-- shops Following Model -->
+    <!-- Modal -->
+    <div class="modal fade" id="shops-followingModal" tabindex="-1" role="dialog" aria-labelledby="shops-followingModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Shops you follow</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Follower 1 -->
+            <div class="container border-bottom p-3">
+              <div class="row">
+                <div class="col-sm-3">
+                    <img src="https://via.placeholder.com/80&text=Profile+Image" alt="Profile Image" class="rounded-circle">
+                </div>
+                <div class="col-sm-5 d-flex">
+                  <div class="align-self-center">
+                    Shop Name
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex">
+                  <div class="align-self-center">
+                    <button type="button" class="btn btn-primary" name="button">Following</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Follower 2 -->
+            <div class="container border-bottom p-3">
+              <div class="row">
+                <div class="col-sm-3">
+                    <img src="https://via.placeholder.com/80&text=Profile+Image" alt="Profile Image" class="rounded-circle">
+                </div>
+                <div class="col-sm-5 d-flex">
+                  <div class="align-self-center">
+                    Shop Name
+                  </div>
+                </div>
+                <div class="col-sm-4 d-flex">
+                  <div class="align-self-center">
+                    <button type="button" class="btn btn-primary" name="button">Following</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- !shop Following Model -->
+
+<!-- !Models -->
+
+<!-- Post -->
+  <!-- Shops Post -->
+    <div id="latestshop-posts">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h5>Latest Posts - Shops you follow</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="float-right">
+              <a href="#"><h5>Show More</h5></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container">
+          <div class="owl-carousel">
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- !Shops Post -->
+
+  <!-- Markets Post -->
+    <div id="latestmarket-posts">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <h5>Latest Posts - Markets you follow</h5>
+          </div>
+          <div class="col-sm-6">
+            <div class="float-right">
+              <a href="#"><h5>Show More</h5></a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container">
+          <div class="owl-carousel">
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- !Markets Post -->
+<!-- !Post -->
+
+<script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      loop:true,
+      margin:10,
+      responsive:{
+        0:{items:1},
+        600:{items:3},
+        1000:{items:5}
+      }
+    });
+  });
+</script>
