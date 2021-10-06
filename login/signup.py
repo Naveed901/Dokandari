@@ -17,22 +17,24 @@ def register():
     return json_response('signup.html', msg=msg)
 
 email = request.form['email']
+username = request.form['username']
+password = request.form['password']
 
- # Check if account exists using MySQL
+    # Check if account exists using MySQL
 cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
 account = cursor.fetchone()
-                # If account exists show error and validation checks
+                    # If account exists show error and validation checks
 if account:
-            msg = 'Account already exists!'
+        msg = 'Account already exists!'
 elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-                msg = 'Invalid email address!'
+        msg = 'Invalid email address!'
 elif not re.match(r'[A-Za-z0-9]+', username):
-                msg = 'Username must contain only characters and numbers!'
+        msg = 'Username must contain only characters and numbers!'
 elif not username or not password or not email:
-                msg = 'Please fill out the form!'
+        msg = 'Please fill out the form!'
 else:
         # Account doesnt exists and the form data is valid, now insert new account into accounts table
         cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
         mysql.connection.commit()
-        msg = 'You have successfully registered!'        
+        msg = 'You have successfully registered!'                
