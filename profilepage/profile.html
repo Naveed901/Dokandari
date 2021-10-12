@@ -10,6 +10,18 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                    <div class="col-md-6"><label clas <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">awais</span><span class="text-black-50">awais@mail.com</span><span> </span></div>
+        </div>
+        <div class="col-md-9 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
                     <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
                 </div>
                 <div class="row mt-3">
@@ -33,7 +45,28 @@
     </div>
 </div>
  -->
-
+<!-- Main Header -->
+<div id="mainheader" class="border-bottom py-3">
+  <div class="row w-100">
+    <div class="col-lg-3">
+      <a href="/" class="text-center">
+        <h2>Dokandari Logo</h2>
+      </a>
+    </div>
+    <div class="col-lg-9">
+      <div class="container">
+        <form method="post" class="form-inline">
+          <div class="input-group">
+            <input type="text" class="form-control searchbar" name="search" placeholder="Search">
+            <select name="filter" class="form-control filter">
+              <option value="">Filter</option>
+              <option value="market">Market Only</option>
+              <option value="shop">Shops Only</option>
+              <option value="product">Product Only</option>
+            </select>
+          </div>
+          <input type="button" name="search" value="Search" class=" ml-md-1 btn searchbtn">
+          <span class="mx-auto">
 <!-- Breadcrumb -->
 <div class="container">
   <h5>
@@ -41,7 +74,7 @@
       <li class="breadcrumb-item"><a href="/">Home</a></li>
       <li class="breadcrumb-item"><a href="#">User</a></li>
       <li class="breadcrumb-item active" aria-current="page">Profile</li>
-    </ol>
+    </ol>  
   </h5>
 </div>
 <!-- !Breadcrumb -->
@@ -55,7 +88,7 @@
         <div class="image">
           <center>
             <img src="https://via.placeholder.com/180&text=Profile+Image" alt="Profile Image" class="rounded-circle mb-3">
-            <h5><?php echo $_SESSION['user'] ?></h5>
+            
           </center>
         </div>
       </div>
@@ -269,3 +302,58 @@
     });
   });
 </script>
+
+
+<!-- Footer -->
+<hr>
+<footer>
+  <div class="container">
+    <div class="row text-muted">
+      <div class="col-lg-3 col-md-6">
+        <h5>Trending Markets</h5>
+        <ul class="list-unstyled">
+          <li>Market</li>
+          <li>Market</li>
+          <li>Market</li>
+          <li>Market</li>
+          <li>Market</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>Trending Categories</h5>
+        <ul class="list-unstyled">
+          <li>Category</li>
+          <li>Category</li>
+          <li>Category</li>
+          <li>Category</li>
+          <li>Category</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5>About Dokandari</h5>
+        <ul class="list-unstyled">
+          <li>About Us</li>
+          <li>News</li>
+          <li>Career</li>
+          <li>Help & Support</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4>Find us on!</h4>
+        <hr>
+        <div class="row social">
+          <a href="https://www.facebook.com/Dokandari.pk/" class="text-primary" target="_blank"><h5><span class="fa fa-facebook"></span></h5></a>
+          <a href="https://www.instagram.com/dokandari.pk" class="text-danger" target="_blank"><h5><span class="fa fa-instagram"></span></h5></a>
+          <a href="https://mobile.twitter.com/Dokandaripk" class="text-info" target="_blank"><h5><span class="fa fa-twitter"></span></h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- !Footer -->
+
+<!-- Copyright -->
+<div id="copyright" class="text-muted text-center">
+  <span>Copyright © 2019-2020 dokandari. All Rights Reserved.</span>
+</div>
+<!-- !Copyright -->

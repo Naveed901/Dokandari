@@ -1,0 +1,178 @@
+<!-- Header -->
+<div id="header" class="border-bottom">
+  <div class="container p-3">
+    <a href="/"><h4>Dokandari</h4></a>
+  </div>
+</div>
+<!-- !Header -->
+
+<!-- BreadCrumb -->
+<!-- <div id="shopSignUp">
+  <div class="container">
+    <ol class="breadcrumb bg-transparent border-bottom pt-3">
+      <li class="breadcrumb-item"><h6>Personal Info - &nbsp;<small><i class="fa fa-check"></i></small></h6></li>
+      <li class="bread
+ -->    
+    
+<!-- <div id="header" class="border-bottom"> -->
+  <!-- <div class="container p-3">
+    <a href="/"><h4>Dokandari</h4></a>
+  </div>
+</div> --> 
+<!-- !Header -->
+
+<!-- BreadCrumb -->
+<div id="shopSignUp">
+  <div class="container">
+    <ol class="breadcrumb bg-transparent border-bottom pt-3">
+      <li class="breadcrumb-item"><h6>Personal Info - &nbsp;<small><i class="fa fa-check"></i></small></h6></li>
+      <li class="breadcrumb-item active" aria-current="page">
+      <h6>Market Details - &nbsp;<small><i class="fa fa-hourglass-o"></i></small></h6></li>
+      <li class="breadcrumb-item" aria-current="page">Shop Details</li>
+    </ol>
+  </div>
+</div>
+<!-- !BreadCrumb -->
+
+<!-- form -->
+<div class="container mt-5">
+  <div class="container">
+    <h4>Market Details</h4>
+    <div class="container"><hr></div>
+    <form method="post" id="market-i">
+      <div class="container">
+        <div class="container my-4">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" list="cities" name="city" id="city" class="form-control" required>
+            <datalist id="cities">
+              <option value="Karachi">
+              <option value="Lahore">
+              <option value="Faisalabad">
+              <option value="Rawalpindi">
+              <option value="Gujranwala">
+              <option value="Peshawar">
+              <option value="Multan">
+              <option value="Hyderabad">
+              <option value="Islamabad">
+              <option value="Quetta">
+              <option value="Bahawalpur">
+              <option value="Sargodha">
+              <option value="Sialkot">
+              <option value="Sukkur">
+              <option value="Larkana">
+              <option value="Sheikhupura">
+              <option value="Rahim Yar Khan">
+              <option value="Jhang">
+              <option value="Dera Ghazi Khan">
+              <option value="Gujrat">
+              <option value="Sahiwal">
+              <option value="Wah Cantonment">
+              <option value="Mardan">
+              <option value="Kasur">
+              <option value="Okara">
+              <option value="Mingora">
+              <option value="Nawabshah">
+              <option value="Chiniot">
+              <option value="Kotri">
+              <option value="Kamoke">
+              <option value="Hafizabad">
+              <option value="Sadiqabad">
+              <option value="Mirpur Khas">
+              <option value="Burewala">
+              <option value="Kohat">
+              <option value="Khanewal">
+              <option value="Dera Ismail Khan">
+              <option value="Turbat">
+              <option value="Muzaffargarh">
+              <option value="Abbotabad">
+              <option value="Mandi Bahauddin">
+              <option value="Shikarpur">
+              <option value="Jacobabad">
+              <option value="Jhelum">
+              <option value="Khanpur">
+              <option value="Khairpur">
+              <option value="Khuzdar">
+              <option value="Pakpattan">
+              <option value="Hub">
+              <option value="Daska">
+              <option value="Gojra">
+              <option value="Dadu">
+              <option value="Muridke">
+              <option value="Bahawalnagar">
+              <option value="Samundri">
+              <option value="Tando Allahyar">
+              <option value="Tando Adam">
+              <option value="Jaranwala">
+              <option value="Chishtian">
+              <option value="Muzaffarabad">
+              <option value="Attock">
+              <option value="Vehari">
+              <option value="Kot Abdul Malik">
+              <option value="Ferozwala">
+              <option value="Chakwal">
+              <option value="Gujranwala Cantonment">
+              <option value="Kamalia">
+              <option value="Umerkot">
+              <option value="Ahmedpur">
+              <option value="Kot Addu">
+              <option value="Wazirabad">
+              <option value="Mansehra">
+              <option value="Layyah">
+              <option value="Mirpur">
+              <option value="Swabi">
+              <option value="Chaman">
+              <option value="Taxila">
+              <option value="Nowshera">
+              <option value="Khushab">
+              <option value="Shahdadkot">
+              <option value="Mianwali">
+              <option value="Kabal">
+              <option value="Lodhran">
+              <option value="Hasilpur">
+              <option value="Charsadda">
+              <option value="Bhakkar">
+              <option value="Badin">
+              <option value="Arif Wala">
+              <option value="Ghotki">
+              <option value="Sambrial">
+              <option value="Jatoi">
+              <option value="Haroonabad">
+              <option value="Daharki">
+              <option value="Narowal">
+              <option value="Tando Muhammad Khan">
+              <option value="Kamber Ali Khan">
+              <option value="Mirpur Mathelo">
+              <option value="Kandhkot">
+              <option value="Bhalwal">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label for="market">Market</label>
+            <input type="text" list="markets" name="market" id="market" class="form-control" required>
+            <datalist id="markets">
+            </datalist>
+          </div>
+          <div class="form-group">
+            <label for="shoptype">Select Shop Type</label>
+            <select class="form-control" name="shoptype" id="shoptype" required>
+              <option value=""></option>
+              <option value="Wholeseller">Wholeseller</option>
+              <option value="Retailer">Retailer</option>
+              <option value="Retailer+Wholeseller">Both</option>
+            </select>
+            <div class="text-danger" id="shoptype-txt">
+            </div>
+          </div>
+          <div class="container"><hr></div>
+          <div class="btn-next">
+            <a href="/#/shopdetail" class="btn btn-primary" title="">Next</a>
+
+            <!-- <input type="button" name="next" value="Next" id="shop-n" class="btn btn-primary"> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- !form -->
