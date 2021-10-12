@@ -1,12 +1,15 @@
-from apps import *
- 
-@app.route('/login/', methods=['GET', 'POST'])
+
+
+# why login route support 2 methods? It should be POST only
+@app.route('/login/', methods=['POST'])
 def login():
     # Output message if something goes wrong...
     msg = ''
     # Check if "username" and "password" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if 'username' in request.form and 'password' in request.form:
         # Create variables for easy access
+        # check user name and password for special characters. Search how to sanitize the input/mysql query. Username minumum should be checked
+        # 
         username = request.form['username']
         password = request.form['password']
         # Check if account exists using MySQL
@@ -21,6 +24,7 @@ def login():
             session['id'] = account['id']
             session['username'] = account['username']
             # Redirect to home page
+            # {success:true,message:Logged in successfully!,data:account}
             return json_response ('Logged in successfully!')
         else:
             # Account doesnt exist or username/password incorrect
