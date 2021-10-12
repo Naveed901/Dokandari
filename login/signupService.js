@@ -4,9 +4,9 @@ app.factory('SignupService', function() {
 
     var isAuthenticated = false;
     return {
-        signup : function(username, password) {
+        signup : function(username, password, email, phonenumber) {
             // TODO call API of register
-            // isAuthenticated = username === admin && password === pass;
+            // isAuthenticated = username === admin && password === pass && email === pass;
             return true;
         },
         isAuthenticated : function() {

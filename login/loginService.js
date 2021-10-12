@@ -5,8 +5,8 @@ app.factory('LoginService', function() {
     var pass = 'admin';
     var isAuthenticated = false;
     return {
-        login : function(username, password) {
-            isAuthenticated = username === admin && password === pass;
+        login : function(username, password, email) {
+            isAuthenticated = username === admin && password === pass && email === pass;
             return isAuthenticated;
         },
         isAuthenticated : function() {
