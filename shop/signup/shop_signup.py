@@ -7,7 +7,7 @@ def shop_signup():
     # Output message if something goes wrong...
     msg = ''
     # Check if "username", "password" and "email" "contact info" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'usfrom apps import *
+    if request.method == 'POST' and from apps import *
 
 # http://localhost:5000/pythinlogin/register - this will be the 
 #    registration page, we need to use both GET and POST requests
