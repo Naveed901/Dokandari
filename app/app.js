@@ -13,17 +13,22 @@ function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('login', {
             url : '/login',
-            templateUrl : '/login/login.html',
+            templateUrl : '/user/userlogin/user_login.html',
+            controller : 'LoginController'
+        })
+        .state('shoplogin', {
+            url : '/shoplogin',
+            templateUrl : '/shop/shoplogin/shop_login.html',
             controller : 'LoginController'
         })
         .state('signup', {
             url : '/signup',
-            templateUrl : '/profilepage/user/signup/signup.html',
+            templateUrl : '/user/usersignup/user_signup.html',
             controller : 'SignupController'
         })
         .state('profile', {
             url : '/profile',
-            templateUrl : '/profilepage/profile.html',
+            templateUrl : '/user/userprofile/user_profile.html',
             controller : 'ProfileController'
         })   
         .state('market', {
@@ -43,7 +48,7 @@ function($stateProvider, $urlRouterProvider) {
         }) 
         .state('shopprofile', {
             url : '/shopprofile',
-            templateUrl : '/shop/shopprofile.html',
+            templateUrl : '/shop/shopprofile/shop_profile.html',
             controller : 'ShopprofileController'
         }) 
         .state('home', {
