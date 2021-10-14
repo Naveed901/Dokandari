@@ -3,9 +3,11 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 import re
+import phonenumbers 
 
 app = Flask(__name__)
 FlaskJSON(app)
+
 
 # Change this to your secret key (can be anything, it's for extra protection)
 app.secret_key = 'your secret key'
@@ -18,3 +20,8 @@ app.config['MYSQL_DB'] = 'dokandari'
 
 # Intialize MySQL
 mysql = MySQL(app)
+
+
+
+
+

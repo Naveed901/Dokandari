@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, request, redirect, url_for, session
+from flask_json import json_response
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
@@ -17,15 +18,7 @@ app.config['MYSQL_DB'] = 'pythonlogin'
 # Intialize MySQL
 mysql = MySQL(app)
 
-# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
-def login():
-    # Output message if something goes wrong...
-    msg = ''
-    return render_template('index.html', msg='')
-
-
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
+@app.route('/dokandari/shop_login/', methods=['GET', 'POST'])
 def login():
     # Output message if something goes wrong...
     msg = ''
@@ -51,10 +44,10 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
-    return render_template('index.html', msg=msg)
+    return json_response('index.html', msg=msg)
 
 # http://localhost:5000/python/logout - this will be the logout page
-@app.route('/pythonlogin/logout')
+@app.route('/dokandari/shop_logout/')
 def logout():
     # Remove session data, this will log the user out
    session.pop('loggedin', None)

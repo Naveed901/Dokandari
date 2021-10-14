@@ -1,14 +1,26 @@
-from aps import *
+from flask import Flask, request, redirect, url_for, session
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
+from flask_json import FlaskJSON, JsonError, json_response, as_json
+import re
+import phonenumbers 
 
-# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
-def login():
-    # Output message if something goes wrong...
-    msg = ''
-    return render_template('index.html', msg='')
+app = Flask(__name__)
+FlaskJSON(app)
 
 
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
+# Change this to your secret key (can be anything, it's for extra protection)
+app.secret_key = 'your secret key'
+
+# Enter your database connection details below
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'dokandari'
+
+# Intialize MySQL
+mysql = MySQL(app)
+@app.route('/dokandari/user_login/', methods=['POST'])
 def login():
     # Output message if something goes wrong...
     msg = ''
@@ -34,10 +46,10 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
-    return render_template('index.html', msg=msg)
+    return json_response('login.html', msg=msg)
 
 # http://localhost:5000/python/logout - this will be the logout page
-@app.route('/pythonlogin/logout')
+@app.route('/dokandari/user_logout/')
 def logout():
     # Remove session data, this will log the user out
    session.pop('loggedin', None)
@@ -45,3 +57,5 @@ def logout():
    session.pop('username', None)
    # Redirect to login page
    return redirect(url_for('login'))
+if __name__ == '__main__':
+    app.run(debug=True) 
