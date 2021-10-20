@@ -1,6 +1,6 @@
 <!-- fetch info -->
 <!-- Main Header -->
-<div id="mainheader" class="border-bottom py-3">
+<div id="mainheader" class="border-bottom py-3 container">
   <div class="row w-100">
     <div class="col-lg-3">
       <a href="/" class="text-center">
@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="col-lg-9">
-      <div class="container">
+      <div class="">
         <form method="post" class="form-inline">
           <div class="input-group">
             <input type="text" class="form-control searchbar" name="search" placeholder="Search">
@@ -19,312 +19,153 @@
               <option value="product">Product Only</option>
             </select>
           </div>
-          <input type="button" name="search" value="Search" class=" ml-md-1 btn searchbtn">
-          <span class="mx-auto">
-
-<!-- Breadcrumb -->
-<div class="container">
-  <h5>
-    <ol class="breadcrumb p-3">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Shops</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Profile</li>
-    </ol>
-  </h5>
-</div>
-<!-- !Breadcrumb -->
-
-<!--  Profile -->
-<div id="profile">
-  <div class="container">
-    <div class="row">
-      <!-- Info -->
-       <div class="p-0 ">
-        <div class="container">
-         <!--  <img src="/uploads/" alt="Profile Image" height="300em" class="w-100 rounded-0 mb-3"> -->
-         <div class="image-area"><img id="imageResult" src="https://via.placeholder.com/400x100&text=Shop+Profile+Image" alt="Shop Profile" height="200px" class="w-100 rounded"></div> 
+          <input type="button" name="search" value="Search" class=" btn-primary btn searchbtn">
+        </form>
+      </div>  
+    </div>
+  </div>
+  <div class="row" style="padding-left: 28px">
+    <div class="col-lg-12" >
+      <!-- Breadcrumb -->
+      <div class="">
+        <h5>
+          <ol class="breadcrumb p-3" style="margin-left: -35px;margin-right: -13px;">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Shop</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+          </ol>
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9" >
+      <div class="p-0 ">
+        <div class="row">
+         <div class="image-area"><img id="imageResult" src="https://via.placeholder.com/400x100&text=Shop+Profile+Image" alt="Shop Profile" height="200px" class="w-100 rounded"> 
+          </div> 
           <!-- Basic Info -->
-         
-
-
-
-
-                <div class="container">
-                  <div class="text-muted">
-                    
-                      <i class="fa fa-phone">  03164445221</i>&nbsp; <br>
-                      <i class="fa fa-map-marker"> address of store</i>&nbsp; <br>
-                   
-                   <!--  <i class="fa fa-clock"></i>&nbsp; --> 
-                  </div>
-                </div>
+          <div class="col-lg-9">
+            <div class="text-muted">
+              <i class="fa fa-phone">  03164445221</i>&nbsp; <br>
+              <i class="fa fa-map-marker"> address of store</i>&nbsp; <br>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="float-left">
+              <div class="">  
+                <a class="text-info"
+                data-toggle="modal" data-target="#followersModal"
+                ><h5><i class=""></i></h5></a>
+                <div class="rating"><strong>Shop Rating: &nbsp;</strong><i class="fa fa-star"></i> &nbsp;4.5</div>
               </div>
             </div>
-            
-              <div class="col-sm-6">
-                <div class="float-right"><div class="container">
-                  <a class="text-info"
-                    data-toggle="modal" data-target="#followersModal"
-                  >><h5><i class="fa fa-user"></i>&nbsp;</h5></a>
-                  <div class="rating"><strong>Shop Rating: &nbsp;</strong><i class="fa fa-star"></i> &nbsp;4.5</div>
-                </div></div>
-              </div>
-            
+            <!-- div class="btn-follow">
+              <center><button type="button" id="follow" class="btn btn-success" name="button">Follow</button></center>
+              <center><button type="button" id="unfollow" class="btn btn-primary" name="button">Unfollow</button></center>
+           </div> -->
           </div>
         </div>
-      </div> 
-      <div class="col-lg-2 mt-4">
-          <center>
-            <div class="card border-0">
-              <div class="card-heading">
-                <img src="https://via.placeholder.com/150&text=Profile+Image" alt="Shopkepper Image" class="img-fluid rounded-circle">
-              </div>
-              <div class="card-body">
-                <strong></strong> <br>
-                <small><i class="fa fa-phone">  03164445221</i>&nbsp; </small>
-              </div>
-            </div>
-          </center>
-          
-            <hr>
-            <div class="btn-follow">
-              
-                <center><button type="button" id="follow" class="btn btn-success" name="button">Follow</button></center>
-             
-                <center><button type="button" id="unfollow" class="btn btn-primary" name="button">Unfollow</button></center>
-              
-            </div>
-            <!-- Script -->
-            <script>
-              $(document).on('click', '#follow', function(){
-                shopkeeper_id = "<?php echo $_GET['id']; ?>"
-                $.ajax({
-                  type: 'POST',
-                  url: '/etc/php/follow/follow',
-                  data: {shopkeeper: shopkeeper_id},
-                  success: function(response) {
-                    if (response == "success") {
-                      unfollow="<center><button type=\"button\" id=\"unfollow\" class=\"btn btn-primary\" name=\"button\">Unfollow</button></center>";
-                      $('.btn-follow').empty();
-                      $('.btn-follow').append(unfollow);
-                    } else {
-                      alert(response);
-                    }
-                  }
-                });
-              });
-              $(document).on('click', '#unfollow', function(){
-                shopkeeper_id = "<?php echo $_GET['id']; ?>"
-                $.ajax({
-                  type: 'POST',
-                  url: '/etc/php/follow/unfollow',
-                  data: {shopkeeper: shopkeeper_id},
-                  success: function(response) {
-                    if (response == "success") {
-                      follow="<center><button type=\"button\" id=\"follow\" class=\"btn btn-success\" name=\"button\">Follow</button></center>";
-                      $('.btn-follow').empty();
-                      $('.btn-follow').append(follow);
-                    } else {
-                      alert(response);
-                    }
-                  }
-                });
-              });
-            </script>
-          
-          <div class="container mt-3 rounded border bg-light py-5">
-            <center>
-              <h3><i class="fa fa-lock"></i></h3>
-              <p>Login to see contact & address details</p>
-              <a href="/#/login"><button type="button" name="button" class="btn btn-outline-danger">Login</button></a>
-            </center>
-          </div>
-        
       </div>
-      
+    </div>
+    <div class="col-lg-2 mt-4">
+      <center>
+        <div class="card border-0">
+          <div class="card-heading">
+             <img class="profile-pic upload-button" id="file1" src="https://via.placeholder.com/150&text=Profile+Image" alt="Shopkepper Image" class="img-fluid rounded-circle"> 
+           </div>
+            <div class="hide">
+              <input class="file-upload file1" name="file0" type="file" accept="image/*"/>
+            </div>
+           </div>
+          <span>Shopkeeper name</span> 
+          <i class="fa fa-phone">  03164445221</i>
+        </div>
+      </center>
+    </div>
+       <div class="container mt-3 rounded border bg-light py-5">
+      <center>
+        <h3><i class="fa fa-lock"></i></h3>
+        <p>Login to see contact & address details</p>
+        <a href="/#/shoplogin"><button type="button" name="button" class="btn btn-outline-danger">Login</button></a>
+      </center>
+    </div>
+  
+    </div>
         <!-- Create a Post -->
         <div class="container"><hr>
           <div id="post-button">
             <div class="float-right">
               <button type="button"  data-toggle="modal" data-target="#postModal" class="btn btn-warning">Create a notice</button>
-              <a href="/post/create"><button type="button" name="create" class="btn btn-primary">Post a new product</button></a>
+              <a href="/#/post"><button type="button" name="create" class="btn btn-primary">Post a new product</button></a>
             </div>
           </div>
         </div>
-      
+      </div>
     </div>
-  </div>
+  </div>  
 </div>
 <!-- !Profile -->
-
 <!-- Models -->
-
-  <!-- Followers Model -->
-    <!-- Modal -->
-    <div class="modal fade" id="followersModal" tabindex="-1" role="dialog" aria-labelledby="followersModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">People following you</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            
-          </div>
-        </div>
+<!-- Followers Model -->
+<!-- Modal -->
+<!-- <div class="modal fade" style="height: auto;top: auto;" id="followersModal" tabindex="-1" role="dialog" aria-labelledby="followersModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">People following you</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  <!-- !Followers Model -->
-
-  <!-- Post Model -->
-    <!-- Modal -->
-    <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <form method="post">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create a notice</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- Follower 1 -->
-              <div class="container border-bottom p-3">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
-                  <textarea name="details" rows="8" class="form-control mt-3" id="details" placeholder="Details" required></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="float-right">
-                <button type="button" name="create" id="notice" class="btn btn-info">Post</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-         <!-- !Post Model -->
-<!-- !Models -->
-<form>
-<div class="container hide my-3" id="post">
-  <div class="card border-0">
-    <div class="card-title ml-3 mt-2">
-      <h3>Create Post</h3>
-    </div>
-    <div class="card-body">
-      <center>
-        <div class="row mb-3" id="post-img">
-          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
-            <div class="circle">
-              <!-- User Profile Image -->
-              <img class="profile-pic upload-button" id="file1" src="/uploads/upload.jpg">
-              <!-- Default Image -->
-              <!-- <i class="fa fa-user fa-5x"></i> -->
-            </div>
-            <div class="p-image">
-              <input class="file-upload file1" name="file0" type="file" accept="image/*"/>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
-            <div class="circle">
-              <!-- User Profile Image -->
-              <img class="profile-pic upload-button" id="file2" src="/uploads/upload.jpg">
-              <!-- Default Image -->
-              <!-- <i class="fa fa-user fa-5x"></i> -->
-            </div>
-            <div class="p-image">
-              <input class="file-upload file2" name="file1" type="file" accept="image/*"/>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
-            <div class="circle">
-              <!-- User Profile Image -->
-              <img class="profile-pic upload-button" id="file3" src="/uploads/upload.jpg">
-              <!-- Default Image -->
-              <!-- <i class="fa fa-user fa-5x"></i> -->
-            </div>
-            <div class="p-image">
-              <input class="file-upload file3" name="file2" type="file" accept="image/*"/>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
-            <div class="circle">
-              <!-- User Profile Image -->
-              <img class="profile-pic upload-button" id="file4" src="/uploads/upload.jpg">
-              <!-- Default Image -->
-              <!-- <i class="fa fa-user fa-5x"></i> -->
-            </div>
-            <div class="p-image">
-              <input class="file-upload file4" name="file3" type="file" accept="image/*"/>
-            </div>
-          </div>
-        </div>
-      </center>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group mt-2">
-            <label for="condition">Condition:</label>&nbsp;&nbsp;
-            <input type="radio" name="condition" value="Old"> Old &nbsp;&nbsp;
-            <input type="radio" name="condition" value="New"> New
-          </div>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" class="form-control rounded">
-            </div>
-            <div class="form-group">
-              <label for="price">Price</label>
-              <input type="text" name="price" class="form-control rounded">
-            </div>
-          <label for="description">Description</label>
-          <textarea name="description" name="description" rows="3" class="form-control rounded"></textarea>
-        </div>
-        <div class="col-md-6" id="char">
-            </div>
-        </div>
+      <div class="modal-body">
+        
       </div>
     </div>
   </div>
-</form>
+</div> -->
+<!-- !Followers Model -->
+ <!-- Post Model -->
+    <!-- Modal -->
+<div class="modal fade"  style="height: auto;top: auto;" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document"> 
+       <form method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create a notice</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span> 
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Follower 1 -->
+          <div class="container border-bottom p-3">
+            <div class="form-group">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+              <textarea name="details" rows="8" class="form-control mt-3" id="details" placeholder="Details" required></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="float-right">
+            <button type="button" name="create" id="notice" class="btn btn-info">Post</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
 <!-- Post -->
 <div id="post">
   <div class="container mt-5">
     <div class="container-sm">
       <h5>Lastest Posts</h5>
       <div class="container">
-
-        
-        <!--   <div class="col-sm-6">
-            <div class="float-right">
-              <a href="#"><h5></h5></a>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="container">
-          <div class="owl-carousel">
-            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
-            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
-            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
-            <div class="item"><img src="https://via.placeholder.com/50" alt="Image"></div>
-          </div>
-        </div>
-      </div> -->
+      </div>
     </div>
-
-
-
-
-
-        <!-- Post 2 -->
-        
-<!-- !Post -->
-
+  </div>
+</div>
 
 <!-- Footer -->
 <hr>
@@ -379,3 +220,143 @@
   <span>Copyright © 2019-2020 dokandari. All Rights Reserved.</span>
 </div>
 <!-- !Copyright -->
+
+
+<!-- Script -->
+<script>
+  $(document).on('click', '#follow', function(){
+    shopkeeper_id = "<?php echo $_GET['id']; ?>"
+    $.ajax({
+      type: 'POST',
+      url: '/etc/php/follow/follow',
+      data: {shopkeeper: shopkeeper_id},
+      success: function(response) {
+        if (response == "success") {
+          unfollow="<center><button type=\"button\" id=\"unfollow\" class=\"btn btn-primary\" name=\"button\">Unfollow</button></center>";
+          $('.btn-follow').empty();
+          $('.btn-follow').append(unfollow);
+        } else {
+          alert(response);
+        }
+      }
+    });
+  });
+  $(document).on('click', '#unfollow', function(){
+    shopkeeper_id = "<?php echo $_GET['id']; ?>"
+    $.ajax({
+      type: 'POST',
+      url: '/etc/php/follow/unfollow',
+      data: {shopkeeper: shopkeeper_id},
+      success: function(response) {
+        if (response == "success") {
+          follow="<center><button type=\"button\" id=\"follow\" class=\"btn btn-success\" name=\"button\">Follow</button></center>";
+          $('.btn-follow').empty();
+          $('.btn-follow').append(follow);
+        } else {
+          alert(response);
+        }
+      }
+    });
+  });
+</script>
+
+<script>
+$(document).ready(function() {
+  $('#notice').click(function(event) {
+    event.preventDefault();
+    if (validation()) {
+      formData = new FormData(this.form);
+      $.ajax({
+        type: 'POST',
+        url: '/etc/php/shop/notice',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(response) {
+          if (response == "success") {
+            $(".modal").modal("hide");
+            location.reload();
+          }
+        }
+      });
+    }
+  });
+});
+
+// Empty Check
+function validation() {
+  flag = "false";
+  if(!$("#title").val()) {
+    flag = "true";
+    $("#title").addClass('is-invalid');
+  }
+  if(!$("#details").val()) {
+    flag = "true";
+    $("#details").addClass('is-invalid');
+  }
+  if(flag == "false") {
+    return true;
+  } else {
+    return false;
+  }
+}
+</script>
+
+
+<script>
+$(document).ready(function() {
+    // Images
+    var readURL1 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  
+    $(".file1").on('change', function(){
+        readURL1(this);
+    });
+   
+    $(".upload-button").on('click', function() {
+      className = this.id;
+       switch (className) {
+         case 'file1':
+           $(".file1").click();
+           break;
+        
+       }
+    });
+    // !Images
+
+    // Submit
+    $(document).on('click','#submit',function(){
+      formData = new FormData(this.form);
+      formData.append("category", categoryVal);
+      formData.append("subcategory", subVal);
+      if (chara1 != undefined) {
+        formData.append("chara1", chara1);
+      } else {
+        formData.append("chara1", " ");
+      }
+      
+      $.ajax({
+        type: 'POST',
+        url: '/etc/php/post/post.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(response) {
+          if (response == "success") {
+            window.location.replace("/");
+          } else {alert(response)}
+        }
+      });
+    });
+    // !Submit
+});
+
+
+

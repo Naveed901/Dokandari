@@ -1,12 +1,12 @@
 
 var app = angular.module('myApp');
-app.factory('LoginService', function() {
+app.factory('UserloginService', function() {
     var admin = 'admin';
     var pass = 'admin';
     var isAuthenticated = false;
     return {
-        login : function(username, password, email) {
-            isAuthenticated = username === admin && password === pass && email === pass;
+        login : function(username, password) {
+            isAuthenticated = username === admin && password === pass ;
             return isAuthenticated;
         },
         isAuthenticated : function() {

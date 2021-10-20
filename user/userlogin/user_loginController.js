@@ -1,6 +1,6 @@
 
 var app = angular.module('myApp');
-app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
+app.controller('UserloginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "Login Page";
     $scope.formSubmit = function() {
         if(LoginService.login($scope.username, $scope.password, $scope.email, $scope.phonenumber )) {
@@ -10,7 +10,7 @@ app.controller('LoginController', function($scope, $rootScope, $stateParams, $st
             $scope.password = '';
             $scope.email = '';
             $scope.phonenumber = '';
-            $state.transitionTo('home');
+            $state.transitionTo('userprofile');
         } else {
             $scope.error = "Incorrect username/password !";
         }   

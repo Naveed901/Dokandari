@@ -1,6 +1,7 @@
 
+<!-- fetch info -->
 <!-- Main Header -->
-<div id="mainheader" class="border-bottom py-3">
+<div id="mainheader" class="border-bottom py-3 container">
   <div class="row w-100">
     <div class="col-lg-3">
       <a href="/" class="text-center">
@@ -8,7 +9,7 @@
       </a>
     </div>
     <div class="col-lg-9">
-      <div class="container">
+      <div class="">
         <form method="post" class="form-inline">
           <div class="input-group">
             <input type="text" class="form-control searchbar" name="search" placeholder="Search">
@@ -19,18 +20,26 @@
               <option value="product">Product Only</option>
             </select>
           </div>
-          <input type="button" name="search" value="Search" class=" ml-md-1 btn searchbtn">
-          <span class="mx-auto">
-<!-- Breadcrumb -->
-<div class="container">
-  <h5>
-    <ol class="breadcrumb p-3">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">User</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Profile</li>
-    </ol>  
-  </h5>
-</div>
+          <input type="button" name="search" value="Search" class=" btn-primary btn searchbtn">
+        </form>
+      </div>  
+    </div>
+  </div>
+  <div class="row" style="padding-left: 28px">
+    <div class="col-lg-12" >
+      <!-- Breadcrumb -->
+      <div class="">
+        <h5>
+          <ol class="breadcrumb p-3" style=" margin-left: -33px;  margin-right: -19px;">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">User</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+          </ol>
+        </h5>
+      </div>
+    </div>
+  </div>
+
 <!-- !Breadcrumb -->
 
 <!-- Profile -->
@@ -40,12 +49,17 @@
       <!-- Info -->
       <div class="col-lg-3">
         <div class="image">
-          <center>
-            <img src="https://via.placeholder.com/180&text=Profile+Image" alt="Profile Image" class="rounded-circle mb-3">
-            
-          </center>
+           <center> 
+           <img class="profile-pic upload-button" id="file1" src="https://via.placeholder.com/180&text=Profile+Image" alt="Profile Image" class="rounded-circle mb-3">
+           <div class="hide">
+           <input class="file-upload file1" name="file0" type="file" accept="image/*"/>
+         </div>
+          </center> 
         </div>
       </div>
+    
+  
+
       <!-- Following -->
       <div class="col-lg-9">
         <div class="card p-3">
@@ -81,7 +95,7 @@
 
   <!-- Market Following Model -->
     <!-- Modal -->
-    <div class="modal fade" id="market-followingModal" tabindex="-1" role="dialog" aria-labelledby="market-followingModalLabel" aria-hidden="true">
+    <div class="modal fade" style="top: 27% "id="market-followingModal" tabindex="-1" role="dialog" aria-labelledby="market-followingModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -135,7 +149,7 @@
 
   <!-- shops Following Model -->
     <!-- Modal -->
-    <div class="modal fade" id="shops-followingModal" tabindex="-1" role="dialog" aria-labelledby="shops-followingModalLabel" aria-hidden="true">
+    <div class="modal fade"style=" top: 27%" id="shops-followingModal" tabindex="-1" role="dialog" aria-labelledby="shops-followingModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -311,3 +325,62 @@
   <span>Copyright © 2019-2020 dokandari. All Rights Reserved.</span>
 </div>
 <!-- !Copyright -->
+
+
+
+<script>
+$(document).ready(function() {
+    // Images
+    var readURL1 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  
+    $(".file1").on('change', function(){
+        readURL1(this);
+    });
+   
+    $(".upload-button").on('click', function() {
+      className = this.id;
+       switch (className) {
+         case 'file1':
+           $(".file1").click();
+           break;
+       }
+    });
+    // !Images
+
+    // Submit
+    $(document).on('click','#submit',function(){
+      formData = new FormData(this.form);
+      formData.append("category", categoryVal);
+      formData.append("subcategory", subVal);
+      if (chara1 != undefined) {
+        formData.append("chara1", chara1);
+      } else {
+        formData.append("chara1", " ");
+      }
+      
+      $.ajax({
+        type: 'POST',
+        url: '/etc/php/post/post.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(response) {
+          if (response == "success") {
+            window.location.replace("/");
+          } else {alert(response)}
+        }
+      });
+    });
+    // !Submit
+});
+
+
+

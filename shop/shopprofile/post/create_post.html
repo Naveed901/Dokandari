@@ -1,0 +1,226 @@
+<div id="mainheader" class="border-bottom py-3">
+  <div class="row w-100">
+    <div class="col-lg-3">
+      <a href="/" class="text-center">
+        <h2 >Dokandari</h2>
+     </a>
+   </div>
+  </div>
+ </div>
+<form>
+<!-- <div class="container hide my-3" id="post"> -->
+  <div class="card border-0">
+    <div class="card-title ml-3 mt-2">
+      <h3>Create Post</h3>
+    <center>
+        <div class="row mb-3" id="post-img">
+          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
+            <div class="circle">
+              <!-- User Profile Image -->
+              <img class="profile-pic upload-button" id="file1" src="/uploads/upload.jpg">
+              <!-- Default Image -->
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <input class="file-upload file1" name="file0" type="file" accept="image/*"/>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
+            <div class="circle">
+              <!-- User Profile Image -->
+              <img class="profile-pic upload-button" id="file2" src="/uploads/upload.jpg">
+              <!-- Default Image -->
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <input class="file-upload file2" name="file1" type="file" accept="image/*"/>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
+            <div class="circle">
+              <!-- User Profile Image -->
+              <img class="profile-pic upload-button" id="file3" src="/uploads/upload.jpg">
+              <!-- Default Image -->
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <input class="file-upload file3" name="file2" type="file" accept="image/*"/>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-2 m-2">
+            <div class="circle">
+              <!-- User Profile Image -->
+              <img class="profile-pic upload-button" id="file4" src="/uploads/upload.jpg">
+              <!-- Default Image -->
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <input class="file-upload file4" name="file3" type="file" accept="image/*"/>
+            </div>
+          </div>
+        </div>
+      </center>
+      <div class="row">
+        <div class="col-md-6">
+           <div class="form-group mt-2">
+            <label for="condition"><h3>Condition:</h3></label>&nbsp;&nbsp;
+            <input type="radio" style="margin: -2px 0 0;" name="condition" value="Old" > Old 
+            <input type="radio" style="margin: -2px 0 0;"  name="condition" value="New"> New
+          </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control rounded">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" name="price" class="form-control rounded">
+            </div>
+          <label for="description">Description</label>
+          <textarea name="description" name="description" rows="3" class="form-control rounded"></textarea>
+
+          <div class="d-flex flex-row-reverse bd-highlight">
+       <button type="button" class="btn btn-primary" name="submit" id="submit">Post</button>
+     </div>
+   </div>
+         <div class="col-md-6" id="char">
+    </div>  
+      </div>
+     </div>
+    </div>
+   <hr>
+  </div>
+ </form>
+</div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    // Images
+    var readURL1 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file1').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    var readURL2 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file2').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    var readURL3 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file3').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    var readURL4 = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#file4').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $(".file1").on('change', function(){
+        readURL1(this);
+    });
+    $(".file2").on('change', function(){
+        readURL2(this);
+    });
+    $(".file3").on('change', function(){
+        readURL3(this);
+    });
+    $(".file4").on('change', function(){
+        readURL4(this);
+    });
+    $(".upload-button").on('click', function() {
+      className = this.id;
+       switch (className) {
+         case 'file1':
+           $(".file1").click();
+           break;
+         case 'file2':
+           $(".file2").click();
+           break;
+         case 'file3':
+           $(".file3").click();
+           break;
+         case 'file4':
+           $(".file4").click();
+           break;
+       }
+    });
+    // !Images
+
+    // Submit
+    $(document).on('click','#submit',function(){
+      formData = new FormData(this.form);
+      formData.append("category", categoryVal);
+      formData.append("subcategory", subVal);
+      if (chara1 != undefined) {
+        formData.append("chara1", chara1);
+      } else {
+        formData.append("chara1", " ");
+      }
+      if (chara1 != undefined) {
+        formData.append("chara2", chara2);
+      } else {
+        formData.append("chara2", " ");
+      }
+      if (chara1 != undefined) {
+        formData.append("chara3", chara3);
+      } else {
+        formData.append("chara3", " ");
+      }
+      if (chara1 != undefined) {
+        formData.append("chara4", chara4);
+      } else {
+        formData.append("chara4", " ");
+      }
+      $.ajax({
+        type: 'POST',
+        url: '/etc/php/post/post.php',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(response) {
+          if (response == "success") {
+            window.location.replace("/");
+          } else {alert(response)}
+        }
+      });
+    });
+    // !Submit
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

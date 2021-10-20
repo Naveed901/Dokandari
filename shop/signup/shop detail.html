@@ -1,16 +1,16 @@
 <!-- Header -->
 <div id="header" class="border-bottom">
   <div class="container p-3">
-    <a href="/"><h4>Dokandari</h4></a>
+    <a href="/"><h2>Dokandari</h2></a>
   </div>
 </div>
 <!-- BreadCrumb -->
 <div id="shopSignUp">
   <div class="container">
     <ol class="breadcrumb bg-transparent border-bottom pt-3">
-      <li class="breadcrumb-item"><h6>Personal Info - &nbsp;<small><i class="fa fa-check"></i></small></h6></li>
-      <li class="breadcrumb-item"><h6>Market Details - &nbsp;<small><i class="fa fa-check"></i></small></h6></li>
-      <li class="breadcrumb-item active" aria-current="page"><h6>Shop Details - &nbsp;<small><i class="fa fa-hourglass-o"></i></small></h6></li>
+      <li class="breadcrumb-item"><h6>Personal Info - </h6></li>
+      <li class="crumb-item"><h6>Market Details - </h6></li>
+      <li class="bread-item active" aria-current="page"><h6>Shop Details -</h6></li>
     </ol>
   </div>
 </div>
@@ -26,14 +26,19 @@
         <div class="container my-4">
           <div class="form-group">
             <!-- Uploaded image area-->
-            <div class="image-area"><img id="imageResult" src="https://via.placeholder.com/400x100&text=Upload+Shop+Image" alt="Shop Profile" height="200px" class="w-100 rounded"></div>
-            <div class=" container text-danger" id="file"></div>
+            <div class="image-area"><img id="imageResult" src="https://via.placeholder.com/400x100&text=Upload+Shop+Image" alt="Shop Profile" height="200px" class="w-100 rounded">
+            </div>
+            <div class=" container text-danger" id="file">
+            </div>
             <!-- Upload image input-->
             <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
                <input id="upload" name="file" type="file" onchange="readURL(this);" accept="image/jpg" class="form-control border-0" required>
-               <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-               <div class="input-group-append">
-                   <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+
+               <!-- <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label> -->
+                
+              <div class="input-group-append">
+              <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small><label>choose file <label> </label>
+
                </div>
              </div>
            </div>
@@ -78,7 +83,7 @@
     </form>
   </div>
 </div>
-<!-- !form -->
+ 
 
  <script type="text/javascript">
 /*  ==========================================

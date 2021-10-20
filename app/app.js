@@ -11,10 +11,10 @@ app.run(function($rootScope, $location, $state, LoginService) {
 app.config(['$stateProvider', '$urlRouterProvider', 
 function($stateProvider, $urlRouterProvider) {
     $stateProvider
-        .state('login', {
-            url : '/login',
+        .state('userlogin', {
+            url : '/userlogin',
             templateUrl : '/user/userlogin/user_login.html',
-            controller : 'LoginController'
+            controller : 'UserloginController'
         })
         .state('shoplogin', {
             url : '/shoplogin',
@@ -26,8 +26,8 @@ function($stateProvider, $urlRouterProvider) {
             templateUrl : '/user/usersignup/user_signup.html',
             controller : 'SignupController'
         })
-        .state('profile', {
-            url : '/profile',
+        .state('userprofile', {
+            url : '/userprofile',
             templateUrl : '/user/userprofile/user_profile.html',
             controller : 'ProfileController'
         })   
@@ -50,7 +50,22 @@ function($stateProvider, $urlRouterProvider) {
             url : '/shopprofile',
             templateUrl : '/shop/shopprofile/shop_profile.html',
             controller : 'ShopprofileController'
-        }) 
+        })
+        .state('forgotpassword', {
+            url : '/forgotpassword',
+            templateUrl : 'forgot_password/forgot_password.html',
+            controller : 'ForgotpasswordController'
+        })
+        .state('getnewpassword', {
+            url : '/getnewpassword',
+            templateUrl : 'get_new_password/get_new_password.html',
+            controller : 'GetnewpasswordController'
+        })
+         .state('post', {
+            url : '/post',
+            templateUrl : 'shop/shopprofile/post/create_post.html',
+            controller : 'PostController'
+        })
         .state('home', {
             url : '/home',
             templateUrl : '/home_page/home.html',

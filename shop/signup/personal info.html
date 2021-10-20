@@ -1,16 +1,16 @@
 <!-- Header -->
 <div id="header" class="border-bottom">
   <div class="container p-3">
-    <a href="/"><h4>Dokandari</h4></a>
+    <a href="/"><h2>Dokandari</h2></a>
   </div>
 </div>
 <!-- BreadCrumb -->
 <div id="shopSignUp">
   <div class="container">
     <ol class="breadcrumb bg-transparent border-bottom pt-3">
-      <li class="breadcrumb-item active"><h6>Personal Info - &nbsp;<small><i class="fa fa-hourglass-o"></i></small></h6></li>
-      <li class="breadcrumb-item" aria-current="page">Market Details</li>
-      <li class="breadcrumb-item" aria-current="page">Shop Details</li>
+      <li class="breadcrumb-item active" ><h6>Personal Info  - </h6></li>
+       <li class="crumb-item" aria-current= "page">Market Details  - </li>
+      <li class="bread-item" aria-current="page">Shop Details</li> 
     </ol>
   </div>
 </div>
@@ -20,7 +20,8 @@
 <div class="container mt-5">
   <div class="container">
     <h4>Personal Info</h4>
-    <div class="container"><hr></div>
+    <div class=""><hr>
+    </div>
     <form method="post" id="personal-i">
       <div class="container">
         <div class="container my-4">
@@ -28,7 +29,7 @@
             <label for="name">Full Name</label>
             <input type="text" name="name" id="name" class="form-control" required>
           </div>
-          <div class="form-row">
+        <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="email">Email</label>
@@ -56,14 +57,222 @@
               </div>
             </div>
           </div>
-          <div class="container"><hr></div>
-          <div class="btn-next">
-            <a href="/#/market" class="btn btn-primary" title="">Next</a>
-            <!-- <input type="button" name="next" value="Next" ng-href="/#/shop/singup/market" id="market-n" class="btn btn-primary"> -->
+        </form>
+        <div class="modal-body">
+          <p>Please Select a Security Question</p>
+          <select name="question" class="form-control">
+            <option value="What was your first pet name?">What was your first pet name?</option>
+            <option value="What was your first teacher name?">What high school did you attend?</option>
+            <option value="Where did your parents met?">In what city were you born?</option>
+            <option value="What was my first crush name?">What was my first crush name?</option>
+            <option value="What is my bestfriend name?">What is my bestfriend name?</option> 
+          </select>
+            <div class="form-group"> 
+            <input type="text" name="answer" placeholder="Your Answer" class="form-control mt-3">
+           </div>  
+
+         </form>
+            <div class="btn-next">
+            <a href="/#/market" class="btn btn-primary " title="">Next</a>
           </div>
-        </div>
-      </div>
-    </form>
-  </div>
+       </form>
+
 </div>
-<!-- !form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+$(document).ready(function() {
+  // Login
+  let formData;
+
+  $("#market-n").click(function(event) {
+    event.preventDefault();
+    if (validation()) {
+      formData = new FormData($("#personal-i")[0]);
+      $(".personal").addClass("hide");
+      $(".market").removeClass("hide");
+    }
+  });
+
+  // Empty Check
+  function validation() {
+    flag = "false";
+    if(!$("#name").val()) {
+      flag = "true";
+      $("#name").addClass('is-invalid');
+    }
+    if(!$("#phone").val()) {
+      flag = "true";
+      $("#phone").addClass('is-invalid');
+    }
+    if(!$("#email").val()) {
+      flag = "true";
+      $("#email").addClass('is-invalid');
+    }
+    else {
+       const email = $("#email").val();
+       if (!validateMail(email)) {
+         flag = "true";
+         $("#email").addClass('is-invalid');
+       }
+    }
+    if(!$("#pass").val() && !$("#pass-c").val()) {
+      flag = "true";
+      $("#pass").addClass('is-invalid');
+      $("#pass-c").addClass('is-invalid');
+    } else {
+      if ($("#pass").val() != $("#pass-c").val()) {
+        flag = "true";
+        $("#pass").addClass('is-invalid');
+        $("#pass-c").addClass('is-invalid');
+      }
+    }
+    if(flag == "false") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Email Validation
+  function validateMail(email)
+  {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  // Stage 2
+  $("#shop-n").click(function(event) {
+    event.preventDefault();
+    if (validation1()) {
+      temp = new FormData($("#market-i")[0]);
+      for (var pair of temp.entries()) {
+        formData.append(pair[0], pair[1]);
+      }
+      $(".market").addClass("hide");
+      $(".shop").removeClass("hide");
+    }
+  });
+
+  // Change
+  $("#city").change(function(){
+    $("#markets").empty();
+    val = $("#city").val();
+    switch (val) {
+      case "Lahore":
+        list = "<option value=\"Hall Road\"><option value=\"Shalmi\"><option value=\"Anarkali\"><option value=\"Hafeez Center\">";
+        $("#markets").append(list);
+        break;
+        case "Rawalpindi":
+          list = "<option value=\"Raja Bazar\"><option value=\"Tench Bhatta\">";
+          $("#markets").append(list);
+          break;
+        case "Karachi":
+          list = "<option value=\"Zainab Market\"><option value=\"Empress Market\">";
+          $("#markets").append(list);
+          break;
+        case "Peshawar":
+          list = "<option value=\"Qissa Khawani Bazar\">";
+          $("#markets").append(list);
+          break;
+        case "Kalam":
+          list = "<option value=\"Kalam Bazar\">";
+          $("#markets").append(list);
+          break;
+    }
+  });
+
+  function validation1(){
+    flag = "false";
+    if(!$("#city").val()) {
+      flag = "true";
+      $("#city").addClass('is-invalid');
+    }
+    if(!$("#market").val()) {
+      flag = "true";
+      $("#market").addClass('is-invalid');
+    }
+    if(!$("#shoptype").val()) {
+      flag = "true";
+      $("#shoptype-txt").empty();
+      $("#shoptype-txt").append("Select a option");
+    }
+    if(flag == "false") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Stage 3
+  $("#signup").click(function(event) {
+    event.preventDefault();
+    if (validation2()) {
+      temp = new FormData($("#shop-i")[0]);
+      for (var pair of temp.entries()) {
+        formData.append(pair[0], pair[1]);
+      }
+      $.ajax({
+        type: 'POST',
+        url: '/etc/php/shop/signup',
+        processData: false,
+        contentType: false,
+        data: formData,
+        success: function(response) {
+          if (response == "success") {
+            window.location.replace("/shop/login");
+          } else {alert(response)}
+        }
+      });
+    }
+  });
+
+  function validation2(){
+    flag = "false";
+    if(!$("#upload").val()) {
+      flag = "true";
+      $("#file").empty();
+      $("#file").append("Please Upload a image");
+    }
+    if(!$("#shopname").val()) {
+      flag = "true";
+      $("#shopname").addClass('is-invalid');
+    }
+    if(!$("#shopaddr").val()) {
+      flag = "true";
+      $("#shopaddr").addClass('is-invalid');
+    }
+    if(!$("#opentime").val()) {
+      flag = "true";
+      $("#opentime").addClass('is-invalid');
+    }
+    if(!$("#closetime").val()) {
+      flag = "true";
+      $("#closetime").addClass('is-invalid');
+    }
+    if(flag == "false") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+});
+
+
+ </script>
