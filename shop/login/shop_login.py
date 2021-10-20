@@ -30,15 +30,7 @@ app.config['MYSQL_DB'] = 'pythonlogin'
 # Intialize MySQL
 mysql = MySQL(app)
 
-# http://localhost:5000/pythonlogin/ - this will be the login page, we need to use both GET and POST requests
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
-def login():
-    # Output message if something goes wrong...
-    msg = ''
-    return render_template('index.html', msg='')
-
-
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
+@app.route('/dokandari/shop_login', methods=['POST'])
 def login():
     # Output message if something goes wrong...
     msg = ''
@@ -64,7 +56,7 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
-    return render_template('index.html', msg=msg)
+    return render_template('login.html', msg=msg)
 
 # http://localhost:5000/python/logout - this will be the logout page
 @app.route('/pythonlogin/logout')
