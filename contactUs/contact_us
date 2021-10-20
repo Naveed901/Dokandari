@@ -1,0 +1,34 @@
+from flask import Flask, request, redirect, url_for, session, render_template, flash
+from flask_mysqldb import MySQL,MySQLdb
+import MySQLdb.cursors
+from flask_json import FlaskJSON, JsonError, json_response, as_json
+from wtforms import Form, BooleanField, StringField, PasswordField, validators
+from werkzeug.utils import secure_filename
+from datetime import datetime
+import urllib.request
+import re
+import os
+import phonenumbers 
+
+app = Flask(__name__)
+FlaskJSON(app)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = ContactForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit() == False:
+            return render_template('contact.html', form=form)
+        else:        
+            name = request.form['name']
+            subject = request.form['subject']
+            email = request.form['email']
+            message = request.form['message']
+            msg = message(subject, sender = email, recipients=    ['myemailaddress@gmail.com'])
+        msg.body = message + "\n\n" + name + " (" + email + ")"
+        email.send(msg)
+        return render_template('contact.html', success=True)
+
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
