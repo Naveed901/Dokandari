@@ -158,3 +158,27 @@
   </div>
 </div>
 <!-- !form -->
+
+<script >
+  function validation1(){
+    flag = "false";
+    if(!$("#city").val()) {
+      flag = "true";
+      $("#city").addClass('is-invalid');
+    }
+    if(!$("#market").val()) {
+      flag = "true";
+      $("#market").addClass('is-invalid');
+    }
+    if(!$("#shoptype").val()) {
+      flag = "true";
+      $("#shoptype-txt").empty();
+      $("#shoptype-txt").append("Select a option");
+    }
+    if(flag == "false") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>

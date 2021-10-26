@@ -28,7 +28,7 @@
         <div class="container my-4">
           <div class="form-group">
             <!-- Uploaded image area-->
-            <div class="image-area"><img id="imageResult" src="https://via.placeholder.com/400x100&text=Upload+Shop+Image" alt="Shop Profile" height="200px" class="w-100 rounded">
+            <div class="image-area"><img id="imageResult" src="./uploads/w.jpg" alt="Shop Profile" height="200px" class="w-100 rounded">
             </div>
             <div class=" container text-danger" id="file">
             </div>
@@ -37,7 +37,7 @@
                <input id="upload" name="file" type="file" onchange="readURL(this);" accept="image/jpg" class="form-control border-0" required>
                 
               <div class="input-group-append">
-            <label for="upload" class="btn btn-primary" style="padding: 0px 12px;line-height: 0px;"> <i class="fa fa-cloud-upload "></i> <small class="">Choose file</small><h6>Choose File </h6> </label>
+            <label for="upload" class="btn btn-primary" style="padding: 0px 12px;line-height: 0px;"> <i class="fa fa-cloud-upload "></i> <small class="">Choose file</small><h6 class=ad>Choose File </h6> </label>
                 
          
                </div>
@@ -85,6 +85,45 @@
   </div>
 </div>
  
+
+<script>
+  
+function validation2(){
+    flag = "false";
+    if(!$("#upload").val()) {
+      flag = "true";
+      $("#file").empty();
+      $("#file").append("Please Upload a image");
+    }
+    if(!$("#shopname").val()) {
+      flag = "true";
+      $("#shopname").addClass('is-invalid');
+    }
+    if(!$("#shopaddr").val()) {
+      flag = "true";
+      $("#shopaddr").addClass('is-invalid');
+    }
+    if(!$("#opentime").val()) {
+      flag = "true";
+      $("#opentime").addClass('is-invalid');
+    }
+    if(!$("#closetime").val()) {
+      flag = "true";
+      $("#closetime").addClass('is-invalid');
+    }
+    if(flag == "false") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
+
+</script>
+
+
 
  <script type="text/javascript">
 /*  ==========================================

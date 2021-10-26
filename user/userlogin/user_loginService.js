@@ -7,6 +7,7 @@ app.factory('UserloginService', function() {
     return {
         login : function(username, password) {
             isAuthenticated = username === admin && password === pass ;
+            console.log('user login service',isAuthenticated,username , admin , password , pass)
             return isAuthenticated;
         },
         isAuthenticated : function() {

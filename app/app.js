@@ -66,6 +66,31 @@ function($stateProvider, $urlRouterProvider) {
             templateUrl : 'shop/shopprofile/post/create_post.html',
             controller : 'PostController'
         })
+        .state('terms&conditions', {
+            url : '/terms&conditions',
+            templateUrl : 'terms&conditions/terms&conditions.html',
+            controller : 'TermsController'
+        })
+        .state('about', {
+            url : '/about',
+            templateUrl : 'about_us/about.html',
+            controller : 'AboutController'
+        })
+         .state('help', {
+            url : '/help',
+            templateUrl : 'help/help.html',
+            controller : 'HelpController'
+        })
+          .state('privacy', {
+            url : '/privacy',
+            templateUrl : 'privacy&policy/privacy_policy.html',
+            controller : 'PrivacyController'
+        }) 
+           .state('contact', {
+            url : '/contact',
+            templateUrl : 'contact_us/contact_us.html',
+            controller : 'ContactController'
+        })  
         .state('home', {
             url : '/home',
             templateUrl : '/home_page/home.html',

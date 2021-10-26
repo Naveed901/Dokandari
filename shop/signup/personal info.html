@@ -83,6 +83,30 @@
 </div>
 
 <script>
+function validation() {
+  flag = "false";
+  if(!$("#title").val()) {
+    flag = "true";
+    $("#title").addClass('is-invalid');
+  }
+  if(!$("#details").val()) {
+    flag = "true";
+    $("#details").addClass('is-invalid');
+  }
+  if(flag == "false") {
+    return true;
+  } else {
+    return false;
+  }
+}
+</script>
+
+
+
+
+
+
+<script>
 
 $(document).ready(function() {
   // Login
